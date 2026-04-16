@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ponpes Mahasiswa Nurul Ummah</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#eef3ff; }
+
+    /* WARNA BIRU MAYA */
+    header { background:linear-gradient(135deg,#4facfe,#00c6ff); color:white; padding:25px; text-align:center; }
+
+    nav { background:#1e3a8a; padding:12px; text-align:center; position:sticky; top:0; }
+    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; cursor:pointer; }
+    nav a:hover { text-decoration:underline; }
+
+    section { padding:20px; display:none; animation: fade 0.3s ease; }
+    .active { display:block; }
+
+    @keyframes fade { from {opacity:0;} to {opacity:1;} }
+
+    .card {
+      background:white;
+      padding:20px;
+      margin:15px auto;
+      border-radius:15px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      max-width:900px;
+    }
+
+    footer { background:#1e3a8a; color:white; text-align:center; padding:15px; }
+
+    button {
+      background:linear-gradient(135deg,#4facfe,#00c6ff);
+      color:white;
+      border:none;
+      padding:10px 15px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    button:hover { opacity:0.9; }
+
+    .back { margin-top:10px; display:inline-block; cursor:pointer; color:#1e3a8a; }
+
+  </style>
+
+  <script>
+    function showContent(id) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach(sec => sec.classList.remove("active"));
+
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add("active");
+      } else {
+        console.error("Section tidak ditemukan:", id);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const ids = ["home", "kitab", "kontak", "jalalain", "jurumiyyah", "alquran"];
+      ids.forEach(id => {
+        console.assert(document.getElementById(id), "TEST FAIL: " + id);
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+<header>
+  <h1>Pondok Pesantren Mahasiswa</h1>
+  <h2>Nurul Ummah</h2>
+  <p>Tempat belajar ilmu agama bagi mahasiswa</p>
+</header>
+
+<nav>
+  <a onclick="showContent('home')">Home</a>
+  <a onclick="showContent('kitab')">Kitab</a>
+  <a onclick="showContent('kontak')">Kontak</a>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+  <div class="card">
+    <h3>Selamat Datang</h3>
+    <p>Pondok Pesantren Mahasiswa Nurul Ummah adalah tempat belajar agama Islam yang fokus pada kajian kitab kuning seperti tafsir, nahwu, dan Al-Qur'an.
+
+      Dahlil Landasan Pendidikan:
+Kewajiban Menuntut Ilmu:
+"...Niscaya Allah akan mengangkat (derajat) orang-orang yang beriman di antaramu dan orang-orang yang diberi ilmu beberapa derajat..." (QS. Al-Mujadilah [58]: 11).
+Keutamaan Mempelajari Agama:
+"Barangsiapa yang Allah kehendaki kebaikan baginya, maka Allah pahamkan ia dalam urusan agama." (HR. Bukhari no. 71 dan Muslim no. 1037).
+Pentingnya Memahami Kitab Kuning/Warisan Ulama:
+"Ulama adalah pewaris para nabi." (HR. Abu Dawud, Tirmidzi). Pondok Pesantren Mahasiswa Nurul Ummah berperan dalam membangun moral bangsa dengan mengintegrasikan nilai-nilai kepesantrenan ke dalam kehidupan mahasiswa. </p>
+  </div> 
+</section>
+
+<!-- KITAB -->
+<section id="kitab">
+  <div class="card">
+    <h3>Tafsir Jalalain</h3>
+    <button onclick="showContent('jalalain')">Buka Materi</button>
+  </div>
+
+  <div class="card">
+    <h3>Jurumiyyah</h3>
+    <button onclick="showContent('jurumiyyah')">Buka Materi</button>
+  </div>
+
+  <div class="card">
+    <h3>Al-Qur'an</h3>
+    <button onclick="showContent('alquran')">Buka Materi</button>
+  </div>
+</section>
+
+<!-- DETAIL -->
+<section id="jalalain">
+  <div class="card">
+    <h3>Tafsir Jalalain</h3>
+    <p>Materi tafsir Al-Qur'an untuk memahami makna ayat secara mendalam.</p>
+    <a class="back" onclick="showContent('kitab')">⬅ Kembali</a>
+  </div>
+</section>
+
+<section id="jurumiyyah">
+  <div class="card">
+    <h3>Jurumiyyah</h3>
+    <p>Materi dasar ilmu nahwu untuk memahami struktur bahasa Arab.</p>
+    <a class="back" onclick="showContent('kitab')">⬅ Kembali</a>
+  </div>
+</section>
+
+<section id="alquran">
+  <div class="card">
+    <h3>Al-Qur'an</h3>
+    <p>Materi pembelajaran Al-Qur'an seperti tajwid, tilawah, dan tafsir dasar.</p>
+    <a class="back" onclick="showContent('kitab')">⬅ Kembali</a>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="card">
+    <h3>Kontak</h3>
+    <p>Email: nurulummah@gmail.com</p>
+    <p>Alamat: Jl Pahlawan, Pekalongan</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Pondok Pesantren Mahasiswa Nurul Ummah</p>
+</footer>
+
+</body>
+</html>
